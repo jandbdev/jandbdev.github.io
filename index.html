@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0f1e;
+      --surface: #111827;
+      --surface2: #161e30;
+      --border: rgba(255, 255, 255, 0.06);
+      --accent: #38bdf8;
+      --accent2: #818cf8;
+      --accent3: #c084fc;
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --muted2: #94a3b8;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: var(--muted2);
+      transition: .3s;
+      font-size: .95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .hero-text p {
+      color: var(--muted2);
+      margin-bottom: 35px;
+      max-width: 500px;
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: .3s;
+      display: inline-block;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, .35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-danger {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+    }
+
+    .btn-danger:hover {
+      border-color: rgba(248, 113, 113, 0.35);
+      color: #f87171;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .circle {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      color: white;
+      box-shadow: 0 20px 80px rgba(56, 189, 248, .25);
+    }
+
+    /* ── SECTION ── */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted2);
+      margin-bottom: 60px;
+    }
+
+    /* ── SKILLS ── */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: .3s;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, .2);
+    }
+
+    /* ──────────────────────────────────────────
+       ACCORDION PROJECTS
+    ────────────────────────────────────────── */
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .acc-item {
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .acc-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .acc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      cursor: pointer;
+      gap: 20px;
+      user-select: none;
+      transition: .2s;
+    }
+
+    .acc-header:hover .acc-title {
+      color: var(--accent);
+    }
+
+    .acc-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .acc-num {
+      font-family: 'Syne', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .1em;
+      min-width: 32px;
+    }
+
+    .acc-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      transition: color .25s;
+    }
+
+    .acc-tag {
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      background: rgba(56, 189, 248, .08);
+      border: 1px solid rgba(56, 189, 248, .2);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .acc-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .acc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .3s;
+      flex-shrink: 0;
+      color: var(--muted2);
+    }
+
+    .acc-item.open .acc-icon {
+      background: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+      transform: rotate(45deg);
+    }
+
+    .acc-icon svg {
+      width: 16px;
+      height: 16px;
+      transition: .3s;
+    }
+
+    /* Body panel */
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .55s cubic-bezier(.4, 0, .2, 1), opacity .35s ease;
+      opacity: 0;
+    }
+
+    .acc-item.open .acc-body {
+      max-height: 700px;
+      opacity: 1;
+    }
+
+    .acc-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      padding: 10px 0 44px;
+      align-items: start;
+    }
+
+    /* Thumbnail strip */
+    .acc-thumbs {
+      display: flex;
+      gap: 12px;
+    }
+
+    .acc-thumb {
+      flex: 1;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: .3s;
+    }
+
+    .acc-thumb:hover {
+      transform: scale(1.04);
+    }
+
+    .acc-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .acc-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent);
+    }
+
+    .acc-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .acc-desc {
+      color: var(--muted2);
+      font-size: .97rem;
+      line-height: 1.75;
+    }
+
+    .acc-tech-label {
+      font-family: 'Syne', sans-serif;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .acc-tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 5px 14px;
+      border-radius: 8px;
+      font-size: .8rem;
+      font-weight: 500;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted2);
+    }
+
+    .acc-view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, .25);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: .9rem;
+      transition: .25s;
+      cursor: pointer;
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      align-self: flex-start;
+    }
+
+    .acc-view-btn:hover {
+      background: rgba(56, 189, 248, .08);
+      border-color: var(--accent);
+    }
+
+    .acc-view-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ──────────────────────────────────────────
+       MODAL
+    ────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(5, 8, 18, .85);
+      backdrop-filter: blur(18px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      max-width: 860px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(30px) scale(.97);
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+      scrollbar-width: thin;
+      scrollbar-color: var(--surface2) transparent;
+    }
+
+    .modal-overlay.active .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 20px;
+      float: right;
+      margin: 20px 20px 0 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: .2s;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, .1);
+      color: white;
+    }
+
+    .modal-close svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .modal-body {
+      padding: 0 36px 40px;
+    }
+
+    /* Image carousel */
+    .modal-gallery {
+      position: relative;
+      margin: -1px -0px 0;
+      border-radius: 22px 22px 0 0;
+      overflow: hidden;
+      height: 320px;
+    }
+
+    .gallery-track {
+      display: flex;
+      height: 100%;
+      transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .gallery-slide {
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, rgba(10, 15, 30, .9));
+    }
+
+    .gallery-dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+
+    .gdot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .35);
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .gdot.active {
+      background: white;
+      width: 22px;
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .45);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s;
+      z-index: 5;
+    }
+
+    .gallery-arrow:hover {
+      background: rgba(255, 255, 255, .15);
+    }
+
+    .gallery-arrow.prev {
+      left: 16px;
+    }
+
+    .gallery-arrow.next {
+      right: 16px;
+    }
+
+    .gallery-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Modal content */
+    .modal-tag {
+      display: inline-block;
+      margin: 26px 0 10px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      background: rgba(56, 189, 248, .08);
+      border: 1px solid rgba(56, 189, 248, .25);
+      color: var(--accent);
+    }
+
+    .modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .modal-desc {
+      color: var(--muted2);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .modal-section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .modal-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 32px;
+    }
+
+    .modal-chip {
+      padding: 7px 16px;
+      border-radius: 9px;
+      font-size: .82rem;
+      font-weight: 500;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted2);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: var(--muted2);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* ── MOBILE ── */
+    @media(max-width:900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin: auto auto 35px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .circle {
+        width: 250px;
+        height: 250px;
+        font-size: 4rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .acc-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .acc-thumbs {
+        flex-direction: column;
+      }
+
+      .acc-title {
+        font-size: 1.2rem;
+      }
+
+      .acc-tag {
+        display: none;
+      }
+
+      .modal-body {
+        padding: 0 20px 30px;
+      }
+
+      .modal-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">YourName</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Fullstack <span>Developer</span></h1>
+        <p>I build modern, responsive, and clean websites with strong UI/UX focus using HTML, CSS, JavaScript, and
+          React.</p>
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="circle">YN</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Technologies and tools I use</p>
+      <div class="skills">
+        <div class="skill-card">
+          <h3>HTML5</h3>
+        </div>
+        <div class="skill-card">
+          <h3>CSS3</h3>
+        </div>
+        <div class="skill-card">
+          <h3>JavaScript</h3>
+        </div>
+        <div class="skill-card">
+          <h3>React</h3>
+        </div>
+        <div class="skill-card">
+          <h3>Tailwind</h3>
+        </div>
+        <div class="skill-card">
+          <h3>Figma</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS — ACCORDION -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Some of my recent work</p>
+
+      <div class="accordion-list" id="accordionList">
+
+        <!-- Item 1 -->
+        <div class="acc-item" data-project="0">
+          <div class="acc-header">
+            <div class="acc-left">
+              <span class="acc-num">01</span>
+              <span class="acc-title">Business Landing Page</span>
+              <span class="acc-tag">Web Design</span>
+            </div>
+            <div class="acc-right">
+              <div class="acc-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="acc-thumbs">
+                <div class="acc-thumb" data-project="0" data-img="0">
+                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80"
+                    alt="Business Landing Page preview 1" loading="lazy" />
+                </div>
+                <div class="acc-thumb" data-project="0" data-img="1">
+                  <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&q=80" alt="preview 2"
+                    loading="lazy" />
+                </div>
+                <div class="acc-thumb" data-project="0" data-img="2">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="preview 3"
+                    loading="lazy" />
+                </div>
+              </div>
+              <div class="acc-meta">
+                <p class="acc-desc">A modern responsive landing page for a digital business — built with performance,
+                  clarity, and conversion in mind. Clean sections, animated CTAs, and a polished mobile experience.</p>
+                <div>
+                  <p class="acc-tech-label">Technologies</p>
+                  <div class="acc-tech-chips">
+                    <span class="chip">HTML5</span>
+                    <span class="chip">CSS3</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">Figma</span>
+                  </div>
+                </div>
+                <button class="acc-view-btn" data-open-modal="0">
+                  View Full Details
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="acc-item" data-project="1">
+          <div class="acc-header">
+            <div class="acc-left">
+              <span class="acc-num">02</span>
+              <span class="acc-title">Portfolio Website</span>
+              <span class="acc-tag">UI/UX</span>
+            </div>
+            <div class="acc-right">
+              <div class="acc-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="acc-thumbs">
+                <div class="acc-thumb" data-project="1" data-img="0">
+                  <img src="https://images.unsplash.com/photo-1545239351-ef35f43d514b?w=400&q=80"
+                    alt="Portfolio preview 1" loading="lazy" />
+                </div>
+                <div class="acc-thumb" data-project="1" data-img="1">
+                  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80" alt="preview 2"
+                    loading="lazy" />
+                </div>
+                <div class="acc-thumb" data-project="1" data-img="2">
+                  <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&q=80" alt="preview 3"
+                    loading="lazy" />
+                </div>
+              </div>
+              <div class="acc-meta">
+                <p class="acc-desc">A clean personal portfolio built to showcase work and attract clients. Features
+                  smooth scroll transitions, a project grid, and an elegant dark theme that lets the work speak for
+                  itself.</p>
+                <div>
+                  <p class="acc-tech-label">Technologies</p>
+                  <div class="acc-tech-chips">
+                    <span class="chip">React</span>
+                    <span class="chip">Tailwind CSS</span>
+                    <span class="chip">Framer Motion</span>
+                    <span class="chip">Vite</span>
+                  </div>
+                </div>
+                <button class="acc-view-btn" data-open-modal="1">
+                  View Full Details
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="acc-item" data-project="2">
+          <div class="acc-header">
+            <div class="acc-left">
+              <span class="acc-num">03</span>
+              <span class="acc-title">Dashboard UI</span>
+              <span class="acc-tag">App</span>
+            </div>
+            <div class="acc-right">
+              <div class="acc-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="acc-thumbs">
+                <div class="acc-thumb" data-project="2" data-img="0">
+                  <img src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=400&q=80"
+                    alt="Dashboard preview 1" loading="lazy" />
+                </div>
+                <div class="acc-thumb" data-project="2" data-img="1">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="preview 2"
+                    loading="lazy" />
+                </div>
+                <div class="acc-thumb" data-project="2" data-img="2">
+                  <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=80" alt="preview 3"
+                    loading="lazy" />
+                </div>
+              </div>
+              <div class="acc-meta">
+                <p class="acc-desc">A fully responsive analytics dashboard with real-time data cards, filterable charts,
+                  and a sidebar nav. Built with usability and scalability as first-class priorities.</p>
+                <div>
+                  <p class="acc-tech-label">Technologies</p>
+                  <div class="acc-tech-chips">
+                    <span class="chip">React</span>
+                    <span class="chip">Recharts</span>
+                    <span class="chip">Tailwind CSS</span>
+                    <span class="chip">TypeScript</span>
+                  </div>
+                </div>
+                <button class="acc-view-btn" data-open-modal="2">
+                  View Full Details
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact">
+      <h2 class="section-title">Let's Work Together</h2>
+      <p>Available for freelance and frontend development projects.</p>
+      <a href="mailto:your@email.com" class="btn btn-primary">Send Email</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Your Name. All rights reserved.</footer>
+
+  <!-- ─────────────── MODAL ─────────────── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+
+      <div class="modal-gallery">
+        <div class="gallery-track" id="galleryTrack"></div>
+        <div class="gallery-overlay"></div>
+        <button class="gallery-arrow prev" id="galleryPrev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <button class="gallery-arrow next" id="galleryNext">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+        <div class="gallery-dots" id="galleryDots"></div>
+      </div>
+
+      <div class="modal-body">
+        <span class="modal-tag" id="modalTag"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <p class="modal-section-label">Technologies Used</p>
+        <div class="modal-chips" id="modalChips"></div>
+        <div class="modal-actions">
+          <a href="#" class="btn btn-primary" id="modalLive">Live Demo ↗</a>
+          <a href="#" class="btn btn-secondary" id="modalRepo">GitHub Repo</a>
+          <a href="#" class="btn btn-danger " id="modalClose">Close Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Project data ── */
+    const projects = [
+      {
+        title: "Business Landing Page",
+        tag: "Web Design",
+        desc: "A modern responsive landing page designed for a digital business — built with performance, conversion, and clarity at its core. The layout features animated hero sections, smooth scroll CTAs, testimonials, and a polished mobile experience that keeps bounce rates low and engagement high.",
+        tech: ["HTML5", "CSS3", "JavaScript", "GSAP", "Figma"],
+        images: [
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=860&q=85",
+          "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=860&q=85",
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=860&q=85"
+        ]
+      },
+      {
+        title: "Portfolio Website",
+        tag: "UI/UX",
+        desc: "A clean, minimal personal portfolio built to showcase creative work and attract high-quality clients. Features smooth scroll transitions, a filterable project grid, dark/light mode, and an elegant aesthetic that keeps the focus on the work itself. Loads in under 1.5 s on mobile.",
+        tech: ["React", "Tailwind CSS", "Framer Motion", "Vite", "TypeScript"],
+        images: [
+          "https://images.unsplash.com/photo-1545239351-ef35f43d514b?w=860&q=85",
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=860&q=85",
+          "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=860&q=85"
+        ]
+      },
+      {
+        title: "Dashboard UI",
+        tag: "App",
+        desc: "A fully responsive analytics dashboard built for SaaS products. Includes real-time stat cards, interactive area/bar charts, filterable data tables, and a collapsible sidebar nav. Designed for clarity at a glance and scalability as data sources grow. Dark-mode first.",
+        tech: ["React", "Recharts", "Tailwind CSS", "TypeScript", "REST API"],
+        images: [
+          "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=860&q=85",
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=860&q=85",
+          "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=860&q=85"
+        ]
+      }
+    ];
+
+    /* ── Accordion ── */
+    document.querySelectorAll('.acc-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.closest('.acc-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ── Modal state ── */
+    let currentSlide = 0;
+    let currentImages = [];
+
+    const overlay = document.getElementById('modalOverlay');
+    const track = document.getElementById('galleryTrack');
+    const dotsEl = document.getElementById('galleryDots');
+
+    function openModal(idx) {
+      const p = projects[idx];
+      currentImages = p.images;
+      currentSlide = 0;
+
+      // Build slides
+      track.innerHTML = p.images.map(src =>
+        `<div class="gallery-slide"><img src="${src}" alt="project screenshot" loading="lazy"/></div>`
+      ).join('');
+
+      // Build dots
+      dotsEl.innerHTML = p.images.map((_, i) =>
+        `<div class="gdot${i === 0 ? ' active' : ''}" data-i="${i}"></div>`
+      ).join('');
+
+      dotsEl.querySelectorAll('.gdot').forEach(d =>
+        d.addEventListener('click', () => goSlide(+d.dataset.i))
+      );
+
+      document.getElementById('modalTag').textContent = p.tag;
+      document.getElementById('modalTitle').textContent = p.title;
+      document.getElementById('modalDesc').textContent = p.desc;
+
+      const chips = document.getElementById('modalChips');
+      chips.innerHTML = p.tech.map(t => `<span class="modal-chip">${t}</span>`).join('');
+
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function goSlide(n) {
+      currentSlide = (n + currentImages.length) % currentImages.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dotsEl.querySelectorAll('.gdot').forEach((d, i) =>
+        d.classList.toggle('active', i === currentSlide)
+      );
+    }
+
+    document.getElementById('galleryPrev').addEventListener('click', () => goSlide(currentSlide - 1));
+    document.getElementById('galleryNext').addEventListener('click', () => goSlide(currentSlide + 1));
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+    // "View Full Details" buttons
+    document.querySelectorAll('[data-open-modal]').forEach(btn => {
+      btn.addEventListener('click', () => openModal(+btn.dataset.openModal));
+    });
+
+    // Accordion thumbnail click → open modal at that image
+    document.querySelectorAll('.acc-thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const proj = +thumb.dataset.project;
+        const img = +thumb.dataset.img;
+        openModal(proj);
+        setTimeout(() => goSlide(img), 50);
+      });
+    });
+
+    // Keyboard nav
+    document.addEventListener('keydown', e => {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') goSlide(currentSlide + 1);
+      if (e.key === 'ArrowLeft') goSlide(currentSlide - 1);
+    });
+  </script>
+</body>
+
+</html>

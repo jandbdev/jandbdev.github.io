@@ -4,768 +4,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Frontend Developer</title>
+  <title>April Jay Alviola | Fullstack Developer</title>
+  <meta name="description"
+    content="Portfolio of April Jay Alviola, a fullstack developer building modern, responsive websites with HTML, CSS, JavaScript, and React." />
+  <meta name="theme-color" content="#0a0f1e" />
+  <meta property="og:title" content="April Jay Alviola | Fullstack Developer" />
+  <meta property="og:description"
+    content="Modern, responsive websites with a strong UI/UX focus — HTML, CSS, JavaScript, and React." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet"> 
+    rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 
-  <style>
-    :root {
-      --bg: #0a0f1e;
-      --surface: #111827;
-      --surface2: #161e30;
-      --border: rgba(255, 255, 255, 0.06);
-      --accent: #38bdf8;
-      --accent2: #818cf8;
-      --accent3: #c084fc;
-      --text: #f1f5f9;
-      --muted: #64748b;
-      --muted2: #94a3b8;
-    }
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(10, 15, 30, 0.85);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-    }
-
-    .logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 800;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
-
-    .nav-links a {
-      color: var(--muted2);
-      transition: .3s;
-      font-size: .95rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: 4rem;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero-text h1 span {
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: inline-block;
-    }
-
-    .hero-text p {
-      color: var(--muted2);
-      margin-bottom: 35px;
-      max-width: 500px;
-      font-size: 1.05rem;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: .3s;
-      display: inline-block;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #0f172a;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(56, 189, 248, .35);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: white;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .btn-danger {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #94a3b8;
-    }
-
-    .btn-danger:hover {
-      border-color: rgba(248, 113, 113, 0.35);
-      color: #f87171;
-    }
-
-    .hero-image {
-      display: flex;
-      justify-content: center;
-    }
-
-    .circle {
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #38bdf8, #6366f1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 5rem;
-      font-weight: 800;
-      color: white;
-      box-shadow: 0 20px 80px rgba(56, 189, 248, .25);
-    }
-
-    /* ── SECTION ── */
-    section {
-      padding: 100px 0;
-    }
-
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: var(--muted2);
-      margin-bottom: 60px;
-    }
-
-    /* ── SKILLS ── */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-card {
-      background: var(--surface);
-      padding: 30px;
-      border-radius: 18px;
-      text-align: center;
-      border: 1px solid var(--border);
-      transition: .3s;
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(56, 189, 248, .2);
-    }
-
-    /* ──────────────────────────────────────────
-       ACCORDION PROJECTS
-    ────────────────────────────────────────── */
-    .accordion-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .acc-item {
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .acc-item:first-child {
-      border-top: 1px solid var(--border);
-    }
-
-    .acc-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 28px 0;
-      cursor: pointer;
-      gap: 20px;
-      user-select: none;
-      transition: .2s;
-    }
-
-    .acc-header:hover .acc-title {
-      color: var(--accent);
-    }
-
-    .acc-left {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex: 1;
-    }
-
-    .acc-num {
-      font-family: 'Syne', sans-serif;
-      font-size: .8rem;
-      font-weight: 700;
-      color: var(--muted);
-      letter-spacing: .1em;
-      min-width: 32px;
-    }
-
-    .acc-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      transition: color .25s;
-    }
-
-    .acc-tag {
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .04em;
-      background: rgba(56, 189, 248, .08);
-      border: 1px solid rgba(56, 189, 248, .2);
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .acc-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .acc-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: .3s;
-      flex-shrink: 0;
-      color: var(--muted2);
-    }
-
-    .acc-item.open .acc-icon {
-      background: var(--accent);
-      color: #0f172a;
-      border-color: var(--accent);
-      transform: rotate(45deg);
-    }
-
-    .acc-icon svg {
-      width: 16px;
-      height: 16px;
-      transition: .3s;
-    }
-
-    /* Body panel */
-    .acc-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .55s cubic-bezier(.4, 0, .2, 1), opacity .35s ease;
-      opacity: 0;
-    }
-
-    .acc-item.open .acc-body {
-      max-height: 700px;
-      opacity: 1;
-    }
-
-    .acc-inner {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 40px;
-      padding: 10px 0 44px;
-      align-items: start;
-    }
-
-    /* Thumbnail strip */
-    .acc-thumbs {
-      display: flex;
-      gap: 12px;
-    }
-
-    .acc-thumb {
-      flex: 1;
-      aspect-ratio: 4/3;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      transition: .3s;
-    }
-
-    .acc-thumb:hover {
-      transform: scale(1.04);
-    }
-
-    .acc-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .acc-thumb::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, .45), transparent);
-    }
-
-    .acc-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .acc-desc {
-      color: var(--muted2);
-      font-size: .97rem;
-      line-height: 1.75;
-    }
-
-    .acc-tech-label {
-      font-family: 'Syne', sans-serif;
-      font-size: .75rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .acc-tech-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .chip {
-      padding: 5px 14px;
-      border-radius: 8px;
-      font-size: .8rem;
-      font-weight: 500;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--muted2);
-    }
-
-    .acc-view-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 10px;
-      border: 1px solid rgba(56, 189, 248, .25);
-      color: var(--accent);
-      font-weight: 600;
-      font-size: .9rem;
-      transition: .25s;
-      cursor: pointer;
-      background: none;
-      font-family: 'DM Sans', sans-serif;
-      align-self: flex-start;
-    }
-
-    .acc-view-btn:hover {
-      background: rgba(56, 189, 248, .08);
-      border-color: var(--accent);
-    }
-
-    .acc-view-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* ──────────────────────────────────────────
-       MODAL
-    ────────────────────────────────────────── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 9000;
-      background: rgba(5, 8, 18, .85);
-      backdrop-filter: blur(18px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .3s ease;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal {
-      background: var(--surface);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      max-width: 860px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      transform: translateY(30px) scale(.97);
-      transition: transform .35s cubic-bezier(.4, 0, .2, 1);
-      scrollbar-width: thin;
-      scrollbar-color: var(--surface2) transparent;
-    }
-
-    .modal-overlay.active .modal {
-      transform: translateY(0) scale(1);
-    }
-
-    .modal-close {
-      position: sticky;
-      top: 20px;
-      float: right;
-      margin: 20px 20px 0 0;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      color: var(--muted2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: .2s;
-      flex-shrink: 0;
-    }
-
-    .modal-close:hover {
-      background: rgba(255, 255, 255, .1);
-      color: white;
-    }
-
-    .modal-close svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .modal-body {
-      padding: 0 36px 40px;
-    }
-
-    /* Image carousel */
-    .modal-gallery {
-      position: relative;
-      margin: -1px -0px 0;
-      border-radius: 22px 22px 0 0;
-      overflow: hidden;
-      height: 320px;
-    }
-
-    .gallery-track {
-      display: flex;
-      height: 100%;
-      transition: transform .45s cubic-bezier(.4, 0, .2, 1);
-    }
-
-    .gallery-slide {
-      min-width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-    }
-
-    .gallery-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, rgba(10, 15, 30, .9));
-    }
-
-    .gallery-dots {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-    }
-
-    .gdot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .35);
-      cursor: pointer;
-      transition: .3s;
-    }
-
-    .gdot.active {
-      background: white;
-      width: 22px;
-    }
-
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, .45);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, .15);
-      color: white;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: .2s;
-      z-index: 5;
-    }
-
-    .gallery-arrow:hover {
-      background: rgba(255, 255, 255, .15);
-    }
-
-    .gallery-arrow.prev {
-      left: 16px;
-    }
-
-    .gallery-arrow.next {
-      right: 16px;
-    }
-
-    .gallery-arrow svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* Modal content */
-    .modal-tag {
-      display: inline-block;
-      margin: 26px 0 10px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      background: rgba(56, 189, 248, .08);
-      border: 1px solid rgba(56, 189, 248, .25);
-      color: var(--accent);
-    }
-
-    .modal-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 14px;
-      line-height: 1.2;
-    }
-
-    .modal-desc {
-      color: var(--muted2);
-      line-height: 1.8;
-      margin-bottom: 28px;
-    }
-
-    .modal-section-label {
-      font-family: 'Syne', sans-serif;
-      font-size: .72rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .modal-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-bottom: 32px;
-    }
-
-    .modal-chip {
-      padding: 7px 16px;
-      border-radius: 9px;
-      font-size: .82rem;
-      font-weight: 500;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--muted2);
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* ── CONTACT ── */
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      color: var(--muted2);
-      margin-bottom: 25px;
-    }
-
-    footer {
-      padding: 30px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    /* ── MOBILE ── */
-    @media(max-width:900px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-text p {
-        margin: auto auto 35px;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      .hero-text h1 {
-        font-size: 3rem;
-      }
-
-      .circle {
-        width: 250px;
-        height: 250px;
-        font-size: 4rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .acc-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .acc-thumbs {
-        flex-direction: column;
-      }
-
-      .acc-title {
-        font-size: 1.2rem;
-      }
-
-      .acc-tag {
-        display: none;
-      }
-
-      .modal-body {
-        padding: 0 20px 30px;
-      }
-
-      .modal-title {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <span>A</span><span>J</span>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill" id="preloaderFill"></div>
+      </div>
+      <div class="preloader-pct" id="preloaderPct">0%</div>
+    </div>
+  </div>
+
+  <!-- Animated background orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot"></div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- NAV -->
-  <nav>
+  <nav id="siteNav">
     <div class="container nav-content">
-      <div class="logo">YourName</div>
-      <div class="nav-links">
+      <a href="#about" class="logo">April Jay Alviola</a>
+      <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"
+        aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
@@ -773,6 +72,7 @@
   <section class="hero" id="about">
     <div class="container hero-content">
       <div class="hero-text">
+        <span class="hero-eyebrow">👋 Hi, I'm April Jay Alviola</span>
         <h1>Fullstack <span>Developer</span></h1>
         <p>I build modern, responsive, and clean websites with strong UI/UX focus using HTML, CSS, JavaScript, and
           React.</p>
@@ -781,10 +81,17 @@
           <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="circle">YN</div>
+      <div class="hero-image" data-parallax="0.12">
+        <div class="circle">
+          <span class="circle-ring"></span>
+          <span class="circle-ring ring-2"></span>
+          AJ
+        </div>
       </div>
     </div>
+    <a href="#skills" class="scroll-hint" aria-label="Scroll to content">
+      <span class="mouse"><span class="wheel"></span></span>
+    </a>
   </section>
 
   <!-- SKILLS -->
@@ -793,24 +100,144 @@
       <h2 class="section-title">Skills</h2>
       <p class="section-subtitle">Technologies and tools I use</p>
       <div class="skills">
-        <div class="skill-card">
+        <div class="skill-card" style="--c:#e34f26">
+          <div class="skill-icon">
+            <svg viewBox="0 0 128 128" aria-hidden="true">
+              <path fill="#e34f26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/>
+              <path fill="#ef652a" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/>
+              <path fill="#ebebeb" d="M64 52.455H49.79l-.982-11.001H64V30.711H37.59l.252 2.829 2.59 29.03H64zm0 28.27l-.047.013-15.323-4.14-.978-10.975H36.851l1.928 21.605 25.16 6.982L64 94.996z"/>
+              <path fill="#fff" d="M63.962 52.455v10.743h13.225l-1.247 13.93-11.978 3.234v11.179l25.18-6.98.184-2.075 2.889-32.34.299-3.29h-3.301zm0-21.744v10.743h25.439l.21-2.366.48-5.548.251-2.829z"/>
+            </svg>
+          </div>
           <h3>HTML5</h3>
+          <p class="skill-sub">Markup</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card" style="--c:#1572b6">
+          <div class="skill-icon">
+            <svg viewBox="0 0 128 128" aria-hidden="true">
+              <path fill="#1572b6" d="M19.67 113.62L9.61 1.04h108.78l-10.07 112.56-44.39 12.32z"/>
+              <path fill="#33a9dc" d="M64.04 116.49l35.88-9.95 8.6-96.27h-44.48z"/>
+              <path fill="#fff" d="M64.04 51.49h17.95l1.24-13.89H64.04V24.03h34.49l-.33 3.69-3.38 37.86H64.04z"/>
+              <path fill="#ebebeb" d="M64.12 87.42l-.06.02-15.12-4.08-.97-10.83H34.04l1.9 21.32 28.12 7.8.06-.02z"/>
+              <path fill="#fff" d="M81.04 64.79l-1.63 18.19-15.16 4.09v14.2l27.85-7.72.2-2.3 2.37-26.46z"/>
+              <path fill="#ebebeb" d="M64.09 24.03v13.57H30.86l-.28-3.09-.63-6.79-.33-3.69zM64.04 51.49v13.57H48.91l-.28-3.09-.62-6.79-.33-3.69z"/>
+            </svg>
+          </div>
           <h3>CSS3</h3>
+          <p class="skill-sub">Styling</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card" style="--c:#f7df1e">
+          <div class="skill-icon">
+            <svg viewBox="0 0 128 128" aria-hidden="true">
+              <path fill="#f7df1e" d="M1.408 1.408h125.184v125.185H1.408z"/>
+              <path fill="#000" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zm-46.885-37.793h-11.689l-.048 30.244c0 6.436.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.239z"/>
+            </svg>
+          </div>
           <h3>JavaScript</h3>
+          <p class="skill-sub">Language</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card" style="--c:#61dafb">
+          <div class="skill-icon">
+            <svg viewBox="0 0 128 128" aria-hidden="true">
+              <g fill="#61dafb">
+                <circle cx="64" cy="64" r="11.4"/>
+                <path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.9 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8zM92.5 14.7c4.1 2.4 5.5 9.8 3.8 20.3-.3 2.1-.8 4.3-1.4 6.6-5.2-1.2-10.7-2-16.5-2.5-3.4-4.8-6.9-9.1-10.4-13 7.4-7.3 14.9-12.3 21-12.3 1.3 0 2.5.3 3.5.9zM81.3 74c-1.8 3.2-3.9 6.4-6.1 9.6-3.7.3-7.4.4-11.2.4-3.9 0-7.6-.1-11.2-.4-2.2-3.2-4.2-6.4-6-9.6-1.9-3.3-3.7-6.7-5.3-10 1.6-3.3 3.4-6.7 5.3-10 1.8-3.2 3.9-6.4 6.1-9.6 3.7-.3 7.4-.4 11.2-.4 3.9 0 7.6.1 11.2.4 2.2 3.2 4.2 6.4 6 9.6 1.9 3.3 3.7 6.7 5.3 10-1.7 3.3-3.4 6.6-5.3 10zm8.3-3.3c1.5 3.5 2.7 6.9 3.8 10.3-3.4.8-7 1.4-10.8 1.9 1.2-1.9 2.5-3.9 3.6-6 1.2-2.1 2.3-4.2 3.4-6.2zM64 97.8c-2.4-2.6-4.7-5.4-6.9-8.3 2.3.1 4.6.2 6.9.2 2.3 0 4.6-.1 6.9-.2-2.2 2.9-4.5 5.7-6.9 8.3zm-18.6-15c-3.8-.5-7.4-1.1-10.8-1.9 1.1-3.3 2.3-6.8 3.8-10.3 1.1 2 2.2 4.1 3.4 6.1 1.2 2.2 2.4 4.1 3.6 6.1zm-7-25.5c-1.5-3.5-2.7-6.9-3.8-10.3 3.4-.8 7-1.4 10.8-1.9-1.2 1.9-2.5 3.9-3.6 6-1.2 2.1-2.3 4.2-3.4 6.2zM64 30.2c2.4 2.6 4.7 5.4 6.9 8.3-2.3-.1-4.6-.2-6.9-.2-2.3 0-4.6.1-6.9.2 2.2-2.9 4.5-5.7 6.9-8.3zm22.2 21l-3.6-6c3.8.5 7.4 1.1 10.8 1.9-1.1 3.3-2.3 6.8-3.8 10.3-1.1-2.1-2.2-4.2-3.4-6.2zM31.7 35c-1.7-10.5-.3-17.9 3.8-20.3 1-.6 2.2-.9 3.5-.9 6 0 13.5 4.9 21 12.3-3.5 3.8-7 8.2-10.4 13-5.8.5-11.3 1.4-16.5 2.5-.6-2.3-1-4.5-1.4-6.6zM7 64c0-4.7 5.7-9.7 15.7-13.4 2-.8 4.2-1.5 6.4-2.1 1.6 5 3.6 10.3 6 15.6-2.4 5.3-4.5 10.5-6 15.5C15.3 75.6 7 69.6 7 64zm28.5 49.3c-4.1-2.4-5.5-9.8-3.8-20.3.3-2.1.8-4.3 1.4-6.6 5.2 1.2 10.7 2 16.5 2.5 3.4 4.8 6.9 9.1 10.4 13-7.4 7.3-14.9 12.3-21 12.3-1.3 0-2.5-.3-3.5-.9zM96.3 93c1.7 10.5.3 17.9-3.8 20.3-1 .6-2.2.9-3.5.9-6 0-13.5-4.9-21-12.3 3.5-3.8 7-8.2 10.4-13 5.8-.5 11.3-1.4 16.5-2.5.6 2.3 1 4.5 1.4 6.6zm9-15.6c-2 .8-4.2 1.5-6.4 2.1-1.6-5-3.6-10.3-6-15.6 2.4-5.3 4.5-10.5 6-15.5 10.2 3.7 18.5 9.7 18.5 15.3 0 4.7-5.7 9.7-15.7 13.4z"/>
+              </g>
+            </svg>
+          </div>
           <h3>React</h3>
+          <p class="skill-sub">Library</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card" style="--c:#38bdf8">
+          <div class="skill-icon">
+            <svg viewBox="0 0 128 128" aria-hidden="true">
+              <path fill="#38bdf8" d="M64 25.6c-17.067 0-27.733 8.533-32 25.6 6.4-8.533 13.867-11.733 22.4-9.6 4.871 1.217 8.351 4.751 12.207 8.663C72.871 56.215 80.099 63.6 96 63.6c17.067 0 27.733-8.533 32-25.6-6.4 8.533-13.867 11.733-22.4 9.6-4.871-1.217-8.351-4.751-12.207-8.663C87.129 32.985 79.901 25.6 64 25.6zM32 63.6C14.933 63.6 4.267 72.133 0 89.2c6.4-8.533 13.867-11.733 22.4-9.6 4.871 1.217 8.351 4.751 12.207 8.663C40.871 94.215 48.099 101.6 64 101.6c17.067 0 27.733-8.533 32-25.6-6.4 8.533-13.867 11.733-22.4 9.6-4.871-1.217-8.351-4.751-12.207-8.663C55.129 70.985 47.901 63.6 32 63.6z"/>
+            </svg>
+          </div>
           <h3>Tailwind</h3>
+          <p class="skill-sub">Framework</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card" style="--c:#a259ff">
+          <div class="skill-icon">
+            <svg viewBox="0 0 128 128" aria-hidden="true">
+              <path fill="#0acf83" d="M45.5 129c11.9 0 21.5-9.6 21.5-21.5V86H45.5C33.6 86 24 95.6 24 107.5S33.6 129 45.5 129z"/>
+              <path fill="#a259ff" d="M24 64.5C24 52.6 33.6 43 45.5 43H67v43H45.5C33.6 86 24 76.4 24 64.5z"/>
+              <path fill="#f24e1e" d="M24 21.5C24 9.6 33.6 0 45.5 0H67v43H45.5C33.6 43 24 33.4 24 21.5z"/>
+              <path fill="#ff7262" d="M67 0h21.5C100.4 0 110 9.6 110 21.5S100.4 43 88.5 43H67V0z"/>
+              <path fill="#1abcfe" d="M110 64.5C110 76.4 100.4 86 88.5 86S67 76.4 67 64.5 76.6 43 88.5 43 110 52.6 110 64.5z"/>
+            </svg>
+          </div>
           <h3>Figma</h3>
+          <p class="skill-sub">Design</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBIES — LIBRARY -->
+  <section id="hobbies">
+    <div class="container">
+      <h2 class="section-title">Hobbies</h2>
+      <p class="section-subtitle">A little library of things I love outside of code</p>
+
+      <div class="library">
+        <article class="book" style="--c:#f87171">
+          <div class="book-spine"></div>
+          <div class="book-body">
+            <div class="book-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="5" cy="16" r="3" />
+                <circle cx="19" cy="16" r="3" />
+                <path d="M5 16h6l3-6h3l2 4" />
+                <path d="M11 16l3-6" />
+                <path d="M9 7h3l2 3" />
+              </svg>
+            </div>
+            <h3 class="book-title">Riding Motorcycle</h3>
+            <p class="book-shelf">Open Road · Vol. 01</p>
+            <p class="book-desc">Nothing clears the head like an open throttle. Weekend rides and long routes are
+              my way to reset, explore new places, and chase that quiet focus that only the road gives.</p>
+          </div>
+        </article>
+
+        <article class="book" style="--c:#818cf8">
+          <div class="book-spine"></div>
+          <div class="book-body">
+            <div class="book-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="11" rx="4" />
+                <path d="M7 11v3M5.5 12.5h3" />
+                <line x1="16" y1="11.5" x2="16" y2="11.5" />
+                <line x1="18.5" y1="14" x2="18.5" y2="14" />
+              </svg>
+            </div>
+            <h3 class="book-title">Playing Online Games</h3>
+            <p class="book-shelf">Co-op &amp; Competitive · Vol. 02</p>
+            <p class="book-desc">From ranked grinds to late-night squad sessions, gaming sharpens my reflexes,
+              strategy, and teamwork — and it's where a lot of my UI/UX inspiration sneaks in.</p>
+          </div>
+        </article>
+
+        <article class="book" style="--c:#38bdf8">
+          <div class="book-spine"></div>
+          <div class="book-body">
+            <div class="book-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.5-1.6 3.4-.6.7-1.4 1.5-1.4 2.6v1h-2v-1c0-1.1-.8-1.9-1.4-2.6C8.8 8.5 8 7.5 8 6a4 4 0 0 1 4-4z" />
+                <path d="M10 16h4" />
+                <path d="M10 19h4" />
+                <path d="M11 22h2" />
+              </svg>
+            </div>
+            <h3 class="book-title">Exploring New Tech</h3>
+            <p class="book-shelf">Always Learning · Vol. 03</p>
+            <p class="book-desc">Frameworks, AI tools, gadgets — if it's new, I want to break it and rebuild it.
+              Tinkering with fresh tech keeps my skills sharp and my curiosity well-fed.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1001,25 +428,62 @@
     <div class="container contact">
       <h2 class="section-title">Let's Work Together</h2>
       <p>Available for freelance and frontend development projects.</p>
-      <a href="mailto:your@email.com" class="btn btn-primary">Send Email</a>
+      <a href="mailto:alviolaapriljay4@gmail.com" class="btn btn-primary">Send Email</a>
     </div>
   </section>
 
-  <footer>© 2026 Your Name. All rights reserved.</footer>
+  <footer>
+    <div class="container footer-content">
+      <p class="footer-cta">Contact me through socials</p>
+      <div class="socials">
+        <a href="https://github.com/jandbdev" class="social" target="_blank" rel="noopener" aria-label="GitHub"
+          data-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/jandbdev" class="social" target="_blank" rel="noopener" aria-label="LinkedIn"
+          data-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com/jandbdev" class="social" target="_blank" rel="noopener" aria-label="X / Twitter"
+          data-label="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com/jandbdev" class="social" target="_blank" rel="noopener" aria-label="Instagram"
+          data-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19a3.63 3.63 0 0 0-.88-1.35 3.63 3.63 0 0 0-1.35-.88c-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 8.74a3.44 3.44 0 1 0 0-6.88 3.44 3.44 0 0 0 0 6.88zm6.74-8.94a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0z"/>
+          </svg>
+        </a>
+        <a href="mailto:alviolaapriljay4@gmail.com" class="social" aria-label="Email" data-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-10 6L2 7" />
+          </svg>
+        </a>
+      </div>
+      <p class="footer-copy">© 2026 April Jay Alviola. All rights reserved.</p>
+    </div>
+  </footer>
 
   <!-- ─────────────── MODAL ─────────────── -->
   <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="modal">
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
 
       <div class="modal-gallery">
         <div class="gallery-track" id="galleryTrack"></div>
         <div class="gallery-overlay"></div>
-        <button class="gallery-arrow prev" id="galleryPrev">
+        <button class="gallery-arrow prev" id="galleryPrev" aria-label="Previous image">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
-        <button class="gallery-arrow next" id="galleryNext">
+        <button class="gallery-arrow next" id="galleryNext" aria-label="Next image">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M9 18l6-6-6-6" />
           </svg>
@@ -1036,7 +500,7 @@
         <div class="modal-actions">
           <a href="#" class="btn btn-primary" id="modalLive">Live Demo ↗</a>
           <a href="#" class="btn btn-secondary" id="modalRepo">GitHub Repo</a>
-          <a href="#" class="btn btn-danger " id="modalClose">Close Project</a>
+          <a href="#" class="btn btn-danger" id="modalClose">Close Project</a>
         </div>
       </div>
     </div>
@@ -1080,19 +544,38 @@
       }
     ];
 
-    /* ── Accordion ── */
+    /* ── Accordion (keyboard accessible) ── */
     document.querySelectorAll('.acc-header').forEach(header => {
-      header.addEventListener('click', () => {
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      header.setAttribute('aria-expanded', 'false');
+
+      const toggle = () => {
         const item = header.closest('.acc-item');
         const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
+        document.querySelectorAll('.acc-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      header.addEventListener('click', toggle);
+      header.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
       });
     });
 
     /* ── Modal state ── */
     let currentSlide = 0;
     let currentImages = [];
+    let lastFocused = null;
 
     const overlay = document.getElementById('modalOverlay');
     const track = document.getElementById('galleryTrack');
@@ -1102,15 +585,17 @@
       const p = projects[idx];
       currentImages = p.images;
       currentSlide = 0;
+      lastFocused = document.activeElement;
 
       // Build slides
-      track.innerHTML = p.images.map(src =>
-        `<div class="gallery-slide"><img src="${src}" alt="project screenshot" loading="lazy"/></div>`
+      track.style.transform = 'translateX(0)';
+      track.innerHTML = p.images.map((src, i) =>
+        `<div class="gallery-slide"><img src="${src}" alt="${p.title} screenshot ${i + 1}" loading="lazy"/></div>`
       ).join('');
 
       // Build dots
       dotsEl.innerHTML = p.images.map((_, i) =>
-        `<div class="gdot${i === 0 ? ' active' : ''}" data-i="${i}"></div>`
+        `<button class="gdot${i === 0 ? ' active' : ''}" data-i="${i}" aria-label="Go to image ${i + 1}"></button>`
       ).join('');
 
       dotsEl.querySelectorAll('.gdot').forEach(d =>
@@ -1126,11 +611,13 @@
 
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+      document.getElementById('modal').focus({ preventScroll: true });
     }
 
     function closeModal() {
       overlay.classList.remove('active');
       document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
     }
 
     function goSlide(n) {
@@ -1143,7 +630,10 @@
 
     document.getElementById('galleryPrev').addEventListener('click', () => goSlide(currentSlide - 1));
     document.getElementById('galleryNext').addEventListener('click', () => goSlide(currentSlide + 1));
-    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalClose').addEventListener('click', e => {
+      e.preventDefault();
+      closeModal();
+    });
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 
     // "View Full Details" buttons
@@ -1168,6 +658,173 @@
       if (e.key === 'ArrowRight') goSlide(currentSlide + 1);
       if (e.key === 'ArrowLeft') goSlide(currentSlide - 1);
     });
+
+    /* ── Mobile nav ── */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      })
+    );
+
+    /* ── Nav: scrolled state + active link ── */
+    const nav = document.getElementById('siteNav');
+    const sections = [...document.querySelectorAll('section[id]')];
+    const linkFor = {};
+    navLinks.querySelectorAll('a').forEach(a => {
+      linkFor[a.getAttribute('href').slice(1)] = a;
+    });
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    const sectionSpy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const link = linkFor[entry.target.id];
+        if (link && entry.isIntersecting) {
+          navLinks.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => sectionSpy.observe(s));
+
+    /* ── Scroll reveal ── */
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = document.querySelectorAll('.skill-card, .book, .acc-item, .section-title, .section-subtitle, .contact');
+
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+      revealTargets.forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${(i % 6) * 60}ms`;
+      });
+
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      revealTargets.forEach(el => revealObserver.observe(el));
+    }
+
+    /* ── Cursor dot (fine pointers only) ── */
+    const cursorDot = document.querySelector('.cursor-dot');
+
+    if (window.matchMedia('(pointer: fine)').matches && !prefersReducedMotion) {
+      document.addEventListener('mousemove', e => {
+        cursorDot.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+        cursorDot.classList.add('visible');
+      });
+
+      document.addEventListener('mouseover', e => {
+        const interactive = e.target.closest('a, button, .acc-header, .acc-thumb, .gdot, .social');
+        cursorDot.classList.toggle('grow', !!interactive);
+      });
+    }
+
+    /* ── Preloader ── */
+    (function () {
+      const preloader = document.getElementById('preloader');
+      const fill = document.getElementById('preloaderFill');
+      const pct = document.getElementById('preloaderPct');
+      let progress = 0;
+      let done = false;
+
+      const tick = setInterval(() => {
+        // ease toward 90% while assets load, then snap to 100 on window load
+        progress += Math.max(1, (90 - progress) * 0.08);
+        if (progress >= 90) progress = 90;
+        render(Math.floor(progress));
+      }, 90);
+
+      function render(v) {
+        if (fill) fill.style.width = v + '%';
+        if (pct) pct.textContent = v + '%';
+      }
+
+      function finish() {
+        if (done) return;
+        done = true;
+        clearInterval(tick);
+        render(100);
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+          document.body.classList.add('loaded');
+          setTimeout(() => preloader.remove(), 700);
+        }, 350);
+      }
+
+      window.addEventListener('load', finish);
+      // safety: never trap the user behind the preloader
+      setTimeout(finish, 4000);
+    })();
+
+    /* ── Scroll progress bar ── */
+    const scrollProgress = document.getElementById('scrollProgress');
+    function updateScrollProgress() {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+      scrollProgress.style.transform = `scaleX(${scrolled})`;
+    }
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress();
+
+    /* ── Parallax (scroll + pointer), motion-safe ── */
+    if (!prefersReducedMotion) {
+      const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
+      const orbs = [...document.querySelectorAll('.orb')];
+      let ticking = false;
+
+      function applyParallax() {
+        const y = window.scrollY;
+        parallaxEls.forEach(el => {
+          const speed = parseFloat(el.dataset.parallax) || 0.1;
+          el.style.transform = `translate3d(0, ${(-y * speed).toFixed(1)}px, 0)`;
+        });
+        orbs.forEach((orb, i) => {
+          const speed = 0.04 + i * 0.03;
+          orb.style.transform = `translate3d(0, ${(y * speed).toFixed(1)}px, 0)`;
+        });
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(applyParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+      applyParallax();
+
+      // subtle pointer-reactive orbs on fine pointers
+      if (window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', e => {
+          const cx = (e.clientX / window.innerWidth - 0.5);
+          const cy = (e.clientY / window.innerHeight - 0.5);
+          orbs.forEach((orb, i) => {
+            const depth = (i + 1) * 18;
+            orb.style.marginLeft = (cx * depth).toFixed(1) + 'px';
+            orb.style.marginTop = (cy * depth).toFixed(1) + 'px';
+          });
+        }, { passive: true });
+      }
+    }
   </script>
 </body>
 
